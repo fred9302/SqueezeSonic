@@ -62,6 +62,9 @@ sub handler {
 		if ($params->{'asize'}) {
 			$prefs->set('asize', $params->{'asize'});
 		}
+  		if ($params->{'auth'}) {
+			$prefs->set('auth', $params->{'auth'});
+		}
 	}	
 
 	$params->{'prefs'}->{'username'} = $prefs->get('username');
@@ -72,6 +75,7 @@ sub handler {
 	$params->{'prefs'}->{'tmusic'} = $prefs->get('tmusic') || '3600';
 	$params->{'prefs'}->{'transcode'} = $prefs->get('transcode') || 'raw';
 	$params->{'prefs'}->{'asize'} = $prefs->get('asize') || '800';
+        $params->{'prefs'}->{'auth'} = $prefs->get('auth') || 'password';  
 
 	return $class->SUPER::handler($client, $params);
 }
